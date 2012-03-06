@@ -5,16 +5,21 @@
 # any instances of @username are replaced with [@username](http://twitter.com/username)
 #
 # Written by Jack Franklin
+# Thanks to @46bit for his help on Skype
+#
+# if you get permission errors, try chmod a+x markdowntwitter.rb
 
 input_file = ARGV[0]
-contents = File.read(input_file)
-contents.gsub!(/\s@(\w)+\s/) do |match|
-  match.strip! #whitespace, be gone!
-  " [#{match}](http://twitter.com/#{match[1..-1]}/) "
-end
 
-File.open(input_file, "w") { |file|
+File.open(input_file, "r+") { |file|
+  contents = file.read
+  contents.gsub!(/\s@(\w)+\s/) do |match|
+    match.strip! #whitespace, be gone
+    " [#{match}](http://twitter.com/#{match[1..-1]}/) "
+  end
   file.puts contents
+
+  puts "File #{input_file} was modified. Output: \n #{contents}"
 }
 
-puts "File #{input_file} was modified. Output: \n #{contents}"
+
