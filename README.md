@@ -12,7 +12,5 @@ twitter account.
 
 Big thanks to [@46bit](http://twitter.com/46bit) for all his help.
 
-The regex needs some improvement, right now it looks for any @someone
-with a blank space either side (initially done to avoid it picking up
-email addresses) but I'm going to put a much more thorough one together.
-If you've got any suggestions, I'd love to hear them.
+The regex is taken from Twitter's own library they open sourced, so
+credit to them for that one.
