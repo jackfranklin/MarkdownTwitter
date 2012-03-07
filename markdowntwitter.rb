@@ -15,7 +15,7 @@ File.open(input_file, "r+") { |file|
   contents = file.read
   contents.gsub!(/(^|[^a-zA-Z0-9_!])(@)([a-zA-Z0-9_]{1,20})/) do |match|
     match.strip! #whitespace, be gone
-    "[#{match}](http://twitter.com/#{match[1..-1]}/)"
+    " [#{match}](http://twitter.com/#{match[1..-1]}/)"
   end
   file.rewind
   file.puts contents
